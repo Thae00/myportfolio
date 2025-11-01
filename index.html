@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8" />
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+  <meta name="description" content="Portfolio" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✅ Favicons -->
+  <link rel="icon" type="assets/images/png" href="favicon.png" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <title>My Portfolio</title>
+
+  <style>
+    /* Fullscreen center loader styling */
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    #loading img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.9; }
+    }
+  </style>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+        overflow: auto; /* Enable scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+      }
+      body {
+        touch-action: pan-y; /* Allow vertical scroll */
+      }
+  </style>
+</head>
+<body>
+<!--<div id="loading">-->
+<!--  &lt;!&ndash; You can replace loading.gif with your own image &ndash;&gt;-->
+<!--  <img src="assets/images/loading.gif" alt="Loading..." />-->
+<!--  <p style="font-family:sans-serif;color:#444;">Loading...</p>-->
+<!--</div>-->
+
+<div id="loading">
+  <lottie-player
+          src="assets/assets/images/loading.json"
+          background="transparent"
+          speed="1"
+          style="width:200px;height:200px"
+          loop
+          autoplay>
+  </lottie-player>
+<!--  <p style="font-family:sans-serif;color:#444;">Loading...</p>-->
+</div>
+
+<script src="main.dart.js" type="application/javascript"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<script>
+  window.addEventListener('flutter-first-frame', function () {
+    const loader = document.getElementById('loading');
+    loader.style.transition = 'opacity 0.5s ease';
+    loader.style.opacity = '0';
+    setTimeout(() => loader.remove(), 500);
+  });
+</script>
+
+<!-- Flutter bootstrap script -->
+<script src="flutter_bootstrap.js" defer></script>
+</body>
+</html>
